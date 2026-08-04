@@ -2098,6 +2098,90 @@ input, select, textarea {
 				opacity: 1.0;
 			}
 
+/* Image that links to another page */
+
+.image.page-link {
+    text-align: center;
+    cursor: pointer;
+}
+
+.image.page-link:after {
+    -moz-transition: opacity 0.2s ease-in-out;
+    -webkit-transition: opacity 0.2s ease-in-out;
+    -ms-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+
+    border-radius: 0.35em;
+    border: solid 3px rgba(255,255,255,0.5);
+    color: #fff;
+    content: 'Open Page';
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: 400;
+    left: 50%;
+    line-height: 2.25em;
+    margin: -1.25em 0 0 -4em;
+    opacity: 0;
+    padding: 0 1.5em;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    top: 50%;
+    white-space: nowrap;
+}
+
+.image.page-link:hover:after {
+    opacity: 1.0;
+}
+
+.image.page-link:hover:before {
+    background: url("images/overlay.png"), url("images/overlay.png");
+    opacity: 1.0;
+}
+
+.page-link img {
+    display: block;
+    width: 100%;
+}
+
+.page-link {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 0.35em;
+}
+
+.page-link img {
+    display: block;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.page-link::after {
+    content: "Go to page";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.45);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 00;
+
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.page-link:hover::after {
+    opacity: 1;
+}
+
+.page-link:hover img {
+    transform: scale(1.05);
+}
+
 		.image img {
 			border-radius: 0.35em;
 			display: block;
@@ -3231,6 +3315,8 @@ input, select, textarea {
 				display: inline-block;
 				margin: 0 auto;
 			}*/
-
-
-		
+body.digital-drawings #header {
+    background-image: 
+        url("../../images/overlay.png"),
+        url("../../images/banner-digital-drawings.png") !important;
+	}
