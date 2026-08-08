@@ -48,22 +48,41 @@
 						<h2>Recent Work</h2>
 						<div class="row">
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/animations/LIJN_ANIMATIE_BOOT_Ada%20kopie.mp4" class="image fit thumb"><img src="images/thumbs/animations/boot_thumb.png" alt="" /></a>
-								<h3>Boot Lijn Animatie </h3>
+    							<button type="button"
+									class="image fit thumb video-thumb"
+									onclick="openVideo(event, 'images/fulls/animations/LIJN_ANIMATIE_BOOT_Ada%20kopie.mp4')">
+									<img src="images/thumbs/animations/boot_thumb.png" alt="Boot lijn animatie" />
+								</button>
+								<h3>Boot Lijn Animatie</h3>
 								<p>2024</p>
 							</article>
+							
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/animations/BigBadFrog.mp4" class="image fit thumb"><img src="images/thumbs/animations/big_bad_frog_thumb_full.png" alt="" /></a>
-								<h3>Big Bad Frog </h3>
+    							<button type="button"
+									class="image fit thumb video-thumb"
+									onclick="openVideo(event, 'images/fulls/animations/BigBadFrog.mp4')">
+									<img src="images/thumbs/animations/big_bad_frog_thumb_full.png" alt="Big Bad Frog" />
+								</button>
+								<h3>Big Bad Frog</h3>
 								<p>2024</p>
 							</article>
+							
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/animations/Ada_Centaur.gif" class="image fit thumb"><img src="images/thumbs/animations/centaur_thumb.png" alt="" /></a>
+    							<button type="button"
+									class="image fit thumb video-thumb"
+									onclick="openGif(event, 'images/fulls/animations/Ada_Centaur.gif')">
+									<img src="images/thumbs/animations/centaur_thumb.png" alt="Centaur" />
+								</button>
 								<h3>Centaur</h3>
 								<p>2023</p>
 							</article>
+							
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="images/fulls/animations/VRst1_001_07ADA.mp4" class="image fit thumb"><img src="images/thumbs/animations/draak_thumb.png" alt="" /></a>
+    							<button type="button"
+									class="image fit thumb video-thumb"
+									onclick="openVideo(event, 'images/fulls/animations/VRst1_001_07ADA.mp4')">
+									<img src="images/thumbs/animations/draak_thumb.png" alt="Wise Dragon" />
+								</button>
 								<h3>Wise Dragon</h3>
 								<p>2023</p>
 							</article>
@@ -464,5 +483,77 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-	</body>
-</html>
+	<div id="video-lightbox" class="video-lightbox">
+
+    <button type="button" id="video-close" class="video-close">×</button>
+
+    <video id="lightbox-video" controls>
+        <source id="lightbox-source" src="" type="video/mp4">
+    </video>
+
+    <img id="lightbox-gif" src="" alt="" style="display: none;">
+
+</div>
+		
+	<script>
+function openVideo(event, videoSrc) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const lightbox = document.getElementById('video-lightbox');
+    const video = document.getElementById('lightbox-video');
+    const source = document.getElementById('lightbox-source');
+    const gif = document.getElementById('lightbox-gif');
+
+    // Verberg de GIF
+    gif.style.display = 'none';
+    gif.src = '';
+
+    // Toon de video
+    video.style.display = 'block';
+
+    source.src = videoSrc;
+    video.load();
+
+    lightbox.classList.add('active');
+
+    video.play();
+}
+
+function openGif(event, gifSrc) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const lightbox = document.getElementById('video-lightbox');
+    const video = document.getElementById('lightbox-video');
+    const gif = document.getElementById('lightbox-gif');
+
+    // Stop en verberg de video
+    video.pause();
+    video.style.display = 'none';
+
+    // Toon de GIF
+    gif.src = gifSrc;
+    gif.style.display = 'block';
+
+    lightbox.classList.add('active');
+}
+
+document.getElementById('video-close').addEventListener('click', function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const lightbox = document.getElementById('video-lightbox');
+    const video = document.getElementById('lightbox-video');
+    const gif = document.getElementById('lightbox-gif');
+
+    video.pause();
+    video.currentTime = 0;
+    video.style.display = 'none';
+
+    gif.src = '';
+    gif.style.display = 'none';
+
+    lightbox.classList.remove('active');
+});
+</script>

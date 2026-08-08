@@ -3450,3 +3450,135 @@ input, select, textarea {
     color: rgba(252, 252, 252, 0.5);
     font-style: normal;
 }
+.other #header {
+    background-image: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url("../../images/Other_Thumb2.png");
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.other #header h1 {
+    color: #f4f4f4;
+    font-style: italic;
+}
+.other #header h1 strong {
+    color: #f4f4f4;
+}
+.other #header h1::before {
+    content: "“";
+    font-size: 5em;
+    line-height: 0;
+    vertical-align: -0.45em;
+    margin-right: 0.05em;
+    color: rgba(252, 252, 252, 0.5);
+    font-style: normal;
+}
+
+.other #header h1::after {
+    content: "”";
+    font-size: 5em;
+    line-height: 0;
+    vertical-align: -0.45em;
+    margin-left: 0.05em;
+    color: rgba(252, 252, 252, 0.5);
+    font-style: normal;
+}
+.video-lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 3em;
+}
+
+.video-lightbox.active {
+    display: flex;
+}
+
+.video-lightbox video {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+}
+
+.video-close {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+
+    background: transparent;
+    border: 0;
+
+    color: #ffffff;
+    font-size: 3em;
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 10001;
+}
+.video-thumb {
+    border: 0;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    text-align: center;
+}
+.video-lightbox img#lightbox-gif {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+}
+.pdf-thumb {
+    border: 0;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.pdf-lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+
+    z-index: 9999;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 3em;
+}
+
+.pdf-lightbox.active {
+    display: flex;
+}
+
+.pdf-lightbox iframe {
+    width: 90%;
+    height: 90%;
+    border: 0;
+    background: #fff;
+}
+
+.pdf-close {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+
+    background: transparent;
+    border: 0;
+
+    color: #fff;
+    font-size: 3em;
+    line-height: 1;
+
+    cursor: pointer;
+    z-index: 10001;
+}
